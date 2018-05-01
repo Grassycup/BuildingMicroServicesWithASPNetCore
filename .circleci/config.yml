@@ -29,6 +29,6 @@ jobs:
           name: Build And Push Docker Image
           command : |
             TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -tg rassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG .
+            docker build -t grassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG .
             docker login -u $Username -p $Password
             docker push grassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG
