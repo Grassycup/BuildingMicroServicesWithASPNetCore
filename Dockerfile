@@ -1,8 +1,8 @@
-FROM microsoft/aspnetcore-build:lts
+FROM microsoft/aspnetcore-build:2.0
 COPY . /app
 WORKDIR /app
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
-EXPOSE 8080/tcp
+EXPOSE 808/0gitcp
 RUN chmod +x ./docker_entrypoint.sh
 CMD /bin/bash ./docker_entrypoint.sh
