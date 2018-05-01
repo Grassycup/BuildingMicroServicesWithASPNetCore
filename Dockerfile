@@ -3,6 +3,7 @@ COPY . /app
 WORKDIR /app
 RUN ["dotnet", "restore"]
 RUN ["dotnet", "build"]
-EXPOSE 808/0gitcp
+RUN ["dotnet", "publish"]
+EXPOSE 8080/gitcp
 RUN chmod +x ./docker_entrypoint.sh
 CMD /bin/bash ./docker_entrypoint.sh
