@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    context: DockerHub
     working_directory: /temp
     docker:
       - image: microsoft/dotnet:sdk
@@ -26,9 +27,8 @@ jobs:
       # build and push Docker image
       - run: 
           name: Build And Push Docker Image
-          context: DockerHub
           command : |
             TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t grassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG .
+            docker build -tg rassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG .
             docker login -u $Username -p $Password
             docker push grassycup/buildingmicroserviceswithaspnetcore-helloworld:$TAG
